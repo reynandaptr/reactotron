@@ -66,6 +66,10 @@ app.on("ready", /* async */ () => {
       width: mainWindowState.width,
       height: mainWindowState.height,
       titleBarStyle: "hiddenInset",
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+      }
     })
 
     mainWindowState.manage(mainWindow)

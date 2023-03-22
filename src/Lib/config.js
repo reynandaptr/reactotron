@@ -1,11 +1,9 @@
 import Store from "electron-store"
 
 const schema = {
-  server: {
-    port: {
-      type: "number",
-      default: 9090,
-    },
+  port: {
+    type: "number",
+    default: 9090,
   },
   commandHistory: {
     type: "number",
@@ -16,8 +14,8 @@ const schema = {
 const configStore = new Store({ schema })
 
 // Setup defaults
-if (!configStore.has("server.port")) {
-  configStore.set("server.port", 9090)
+if (!configStore.has("port")) {
+  configStore.set("port", 9090)
 }
 if (!configStore.has("commandHistory")) {
   configStore.set("commandHistory", 500)

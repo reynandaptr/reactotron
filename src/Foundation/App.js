@@ -22,7 +22,7 @@ import StatusBar from "./StatusBar"
 import CustomCommandsList from "../CustomCommands/CustomCommandsList"
 import ReactotronTerminal from "./ReactotronTerminal"
 
-const session = new SessionStore(config.get("server.port", 9090))
+const session = new SessionStore(config.get("port", 9090))
 
 const Styles = {
   container: { ...AppStyles.Layout.vbox },

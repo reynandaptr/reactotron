@@ -15,7 +15,7 @@ const Styles = {
     backgroundColor: Colors.backgroundSubtleDark,
     // boxShadow: `0px 0px 30px ${Colors.glow}`,
     borderRight: `1px solid ${Colors.chromeLine}`,
-    WebkitAppRegion: "drag",
+    // WebkitAppRegion: "drag",
     transition: "margin 0.2s ease-out",
   },
   content: { ...AppStyles.Layout.vbox, height: "100%", alignItems: "center" },

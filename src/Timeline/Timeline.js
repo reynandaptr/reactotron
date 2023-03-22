@@ -100,7 +100,7 @@ class Timeline extends Component {
     const reverseIf = ui.isTimelineOrderReversed ? reverse : identity
 
     return (
-      <div style={Styles.container}>
+      <div style={{ ...Styles.container, maxHeight: 'calc(100vh - 86px)' }}>
         <TimelineHeader onFilter={this.onFilter} />
         {isEmpty && this.renderEmpty()}
         <div style={Styles.commands} ref="commands">

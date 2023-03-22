@@ -9,7 +9,7 @@ import customerRenderers, { renderTypes } from "./renderers"
 
 const Styles = {
   header: {
-    WebkitAppRegion: "drag",
+    // WebkitAppRegion: "drag",
     height: "30px",
     width: "100%",
     backgroundColor: Colors.backgroundSubtleLight,

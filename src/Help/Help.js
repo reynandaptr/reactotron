@@ -43,7 +43,7 @@ const Styles = {
 }
 
 const Help = () => (
-  <div style={Styles.container}>
+  <div style={{ ...Styles.container, maxHeight: 'calc(100vh - 86px)' }}>
     <Header title={`Using Reactotron ${pjson.version}`} />
     <div style={Styles.content}>
       <div style={Styles.logoPanel}>

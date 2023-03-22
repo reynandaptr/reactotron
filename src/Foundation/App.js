@@ -29,9 +29,7 @@ const Styles = {
   content: {
     ...AppStyles.Layout.vbox,
     backgroundColor: Colors.background,
-    color: Colors.foreground,
-    height: "100vh",
-    scroll: "hidden",
+    color: Colors.foreground
   },
   body: { ...AppStyles.Layout.hbox },
   app: { ...AppStyles.Layout.vbox, scroll: "none", overflow: "hidden" },
@@ -66,7 +64,7 @@ export default class App extends Component {
             {!ui.inTerminal && (
               <div style={Styles.body}>
                 <Sidebar />
-                <div style={Styles.app}>
+                <div style={{ ...Styles.app, maxHeight: 'calc(100vh - 86px)' }}>
                   <div style={showHome ? Styles.page : Styles.pageHidden}>
                     <Home />
                   </div>
@@ -84,9 +82,6 @@ export default class App extends Component {
                   </div>
                   <div style={showCustomCommands ? Styles.page : Styles.pageHidden}>
                     <CustomCommandsList />
-                  </div>
-                  <div style={showSettings ? Styles.page : Styles.pageHidden}>
-                    <h1>Settings</h1>
                   </div>
                 </div>
               </div>

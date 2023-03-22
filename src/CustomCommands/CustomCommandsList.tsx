@@ -72,7 +72,7 @@ export default class CustomCommandsList extends React.Component<Props, State> {
     const { search } = this.state
 
     return (
-      <div style={Styles.container as any}>
+      <div style={{ ...Styles.container, maxHeight: 'calc(100vh - 86px)' } as any}>
         <CustomCommandsListHeader search={search} onSearchChange={this.handleSearchChange} />
         <div style={Styles.buttonsContainer as any}>
           {customCommands.filter(this.filterSearch).map((cc, idx) => (

@@ -8,7 +8,6 @@ import DeviceSelector from "./DeviceSelector"
 
 const Styles = {
   container: {
-    cursor: "pointer",
     backgroundColor: Colors.backgroundSubtleLight,
     borderTop: `1px solid ${Colors.chromeLine}`,
     color: Colors.foregroundDark,
@@ -16,7 +15,7 @@ const Styles = {
   },
   content: {
     backgroundColor: Colors.subtleLine,
-    height: 25,
+    height: 85,
     paddingLeft: 10,
     paddingRight: 10,
     ...AppStyles.Layout.hbox,
@@ -72,29 +71,13 @@ class StatusBar extends Component {
   renderCollapsed() {
     const { session } = this.props
 
-    let selectedDevice = "Waiting for connection"
+    let selectedDevice = `Waiting for connection on port ${session.port}`
 
     if (session.selectedConnection) {
       selectedDevice = `${getPlatformName(session.selectedConnection)} ${getPlatformDetails(
         session.selectedConnection
       )}`
     }
-
-    return (
-      <div style={Styles.content} onClick={this.handleOpenStatusBar}>
-        <div style={Styles.connectionInfo}>
-          port {session.port} | {session.connections.length} connections
-        </div>
-        <div style={Styles.connectionInfo}>device: {selectedDevice}</div>
-        <div style={Styles.expandIcon}>
-          <ExpandIcon size={18} />
-        </div>
-      </div>
-    )
-  }
-
-  renderExpanded() {
-    const { session } = this.props
 
     let selectedSessionId = ""
 
@@ -103,21 +86,17 @@ class StatusBar extends Component {
     }
 
     return (
-      <div style={{ ...Styles.content, ...Styles.contentOpen }}>
-        <div style={Styles.connections}>
-          {session.connections.map(item => (
-            <DeviceSelector
-              key={item.id}
-              selectedDeviceClientId={selectedSessionId}
-              device={item}
-              showName={this.areAnyDifferent()}
-              onSelect={this.handleDeviceSelected}
-            />
-          ))}
-        </div>
-        <div style={Styles.expandIcon} onClick={this.handleCloseStatusBar}>
-          <ExpandIcon size={18} />
-        </div>
+      <div style={{ ...Styles.content, justifyContent: 'center' }} onClick={this.handleOpenStatusBar}>
+        {selectedDevice === `Waiting for connection on port ${session.port}` && <div style={Styles.connectionInfo}>device: {selectedDevice}</div>}
+        {session.connections.map(item => (
+          <DeviceSelector
+            key={item.id}
+            selectedDeviceClientId={selectedSessionId}
+            device={item}
+            showName={this.areAnyDifferent()}
+            onSelect={this.handleDeviceSelected}
+          />
+        ))}
       </div>
     )
   }
@@ -129,7 +108,7 @@ class StatusBar extends Component {
 
     return (
       <div style={Styles.container}>
-        {ui.statusBarExpanded ? this.renderExpanded() : this.renderCollapsed()}
+        {this.renderCollapsed()}
       </div>
     )
   }

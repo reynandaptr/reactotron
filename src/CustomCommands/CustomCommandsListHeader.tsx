@@ -14,7 +14,7 @@ const toolbarButton = {
 
 const Styles = {
   container: {
-    WebkitAppRegion: "drag",
+    // WebkitAppRegion: "drag",
     backgroundColor: Colors.backgroundSubtleLight,
     borderBottom: `1px solid ${Colors.chromeLine}`,
     color: Colors.foregroundDark,
